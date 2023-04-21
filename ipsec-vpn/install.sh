@@ -1,5 +1,9 @@
 #!/bin/sh
 #
+# 上传docker镜像！！！！！ipsec-vpn-server_56019118061d.tar
+# docker load < ipsec-vpn-server_56019118061d.tar
+# docker image tag 56019118061d hwdsl2/ipsec-vpn-server:latest
+
 if [[ ! -d "/data/docker-compose/ipsec-vpn/" ]]; then
 	#create docker-compose dir
 	mkdir -p /data/docker-compose/ipsec-vpn/
@@ -84,7 +88,7 @@ services:
 volumes:
   ikev2-vpn-data:
 EOF
-
+cd /data/docker-compose/ipsec-vpn
 docker-compose up -d 
 
 sleep 3
@@ -108,3 +112,4 @@ Android 安装为例：
 单击新的 VPN 配置文件以开始连接。
 查看更多：https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/ikev2-howto-zh.md
 EOF
+
